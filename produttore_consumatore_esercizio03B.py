@@ -24,16 +24,35 @@ class ProduttoreThread(threading.Thread):
     def __init__(self, idx):
         super().__init__()
         self.idx = idx
-
-    # DA IMPLEMENTARE (run)
+    selfdato=idx*100+1
+    def run(self)
+    global metti
+    vuoto.aquire()
+    mutexP.aquire()
+    i_metti=metti
+    metti= (metti+1)%DIM_BUFFER
+    mutexP.release()
+    buffer(i_metti)=selfdato
+    print(PROD-(self.idx))prodotto(selfdato) in buffer(i_metti)
+    self.dato+=1
+    pieno.release()
 
 
 class ConsumatoreThread(threading.Thread):
     def __init__(self, idx):
         super().__init__()
         self.idx = idx
-
-    # DA IMPLEMENTARE (run)
+        def.run(self)
+        global togli
+        While True:
+        pieni.aquire()
+        mutexC.aquire()
+        i_togli=togli
+        togli=(togli+1)% DIM_BUFFER
+        mutexC.release()
+        dato.buffer(i_togli)
+         print(PROD-(self.idx))prodotto(selfdato) in buffer(i_togli)
+    self.dato+=1
 
 
 def main():
@@ -42,15 +61,21 @@ def main():
     produttori = [ProduttoreThread(i + 1) for i in range(N_PRODUTTORI)]
     consumatori = [ConsumatoreThread(i + 1) for i in range(N_CONSUMATORI)]
 
-    # DA IMPLEMENTARE: start dei thread produttori e consumatori
-
-    # DA IMPLEMENTARE: join di tutti i produttori
-
+    for c in consumatori:
+        c.start()
+        for p in produttori:
+            p.start()
+            for p in produttori:
+                p.join()
     print("Tutti i sensori hanno terminato. Chiusura piste...")
-
-    # Invia una sentinella None per ogni pista attiva.
+    for_inrange (N_CONSUMATORI)
     for _ in range(N_CONSUMATORI):
-        # DA IMPLEMENTARE: inserire None nel buffer
+     vuoto.acquire()
+    buffer(metti)=None
+    metti=(metti+1)%DIM_BUFFER
+    pieno.release()
+    for c in consumatori:
+        c.join()
         pass
 
     # DA IMPLEMENTARE: join di tutti i consumatori
